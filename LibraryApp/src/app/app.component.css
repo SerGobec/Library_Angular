@@ -1,0 +1,16 @@
+#FullInfoView{
+    position: fixed;
+    height: 70%;
+    width: 60%;
+    left: 20%;
+    top: 15%;
+}
+
+.hidden {
+  visibility: hidden;
+  background: grey;
+}
+
+.blured {
+  filter: blur(6px);
+}

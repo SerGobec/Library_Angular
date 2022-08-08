@@ -9,6 +9,7 @@ import { EditBookComponent } from './edit-book/edit-book.component';
 import { ViewBookComponent } from './view-book/view-book.component';
 import { DataLibrary } from './Services/DataLibrary.service';
 import { FormsModule } from '@angular/forms';
+import { ItemViewer } from './Services/ItemViewer.service';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,7 @@ import { FormsModule } from '@angular/forms';
     BrowserModule,
     FormsModule
   ],
-  providers: [DataLibrary],
+  providers: [DataLibrary, ItemViewer],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

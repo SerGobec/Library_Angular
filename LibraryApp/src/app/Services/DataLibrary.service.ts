@@ -5,6 +5,7 @@ import { Book } from '../Models/Book.model';
 import { Rating } from '../Models/Rating.model';
 import { Review } from '../Models/Review.model';
 import { BookInfo } from '../ViewModels/BookInfo.model';
+import { FullBookInfo } from '../ViewModels/FullBookInfo.model';
 
 @Injectable()
 export class DataLibrary {
@@ -86,7 +87,23 @@ export class DataLibrary {
     this.books.push(new Book(1, "", "", "", "", ""));
     this.booksCkecker$.next(this.books);
   }
-  
+
+  getFullInfo(bookId: number): FullBookInfo | undefined {
+    let info: FullBookInfo = new FullBookInfo();
+    if (this.books.filter(el => el.Id == bookId).length == 0) return undefined;
+    let book: Book = this.books.filter(el => el.Id == bookId)[0];
+    info.Id = book.Id;
+    info.Author = book.Author;
+    info.Content = book.Content;
+    info.Cover = book.Cover;
+    info.Genre = book.Genre;
+    info.Title = book.Title;
+    info.reviews = this.reviews.filter(el => el.BookId == bookId);
+    if (this.ratings.filter(el => el.BookId == bookId).length > 0) {
+      info.Score = this.ratings.filter(el => el.BookId == bookId)[0].Score;
+    }
+    return info;
+  }
 }
 
 

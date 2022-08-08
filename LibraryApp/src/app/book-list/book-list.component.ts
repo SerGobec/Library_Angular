@@ -8,15 +8,18 @@ import { BookInfo } from '../ViewModels/BookInfo.model';
   styleUrls: ['./book-list.component.css']
 })
 export class BookListComponent implements OnInit {
+  ShowAllswitcher: boolean = true;
   books: BookInfo[] = [];
   constructor(private library: DataLibrary) { }
 
   ShowAll() {
+    this.ShowAllswitcher = true;
     console.log("ShowAll");
     this.books = this.library.getBooksInfo();
   }
 
   ShowReccomended() {
+    this.ShowAllswitcher = false;
     this.books = this.library.getRecommendedBooksInfo();
     console.log("ShowRecommended");
   }

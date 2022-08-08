@@ -1,30 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { DataLibrary } from '../Services/DataLibrary.service';
 import { Subscription } from 'rxjs';
 import { Book } from '../Models/Book.model';
+import { ItemViewer } from '../Services/ItemViewer.service';
+import { FullBookInfo } from '../ViewModels/FullBookInfo.model';
 
 @Component({
   selector: 'view-book',
   templateUrl: './view-book.component.html',
   styleUrls: ['./view-book.component.css']
 })
-export class ViewBookComponent implements OnInit {
-  counter: number = 0;
-  private subs!: Subscription;
+export class ViewBookComponent {
+  @Input() model: FullBookInfo | undefined;
 
-  constructor(private service: DataLibrary) {  }
+  constructor(private itemViewer: ItemViewer) { }
 
-  ngOnInit(): void {
-    this.subs = this.service
-      .booksCkecker$.subscribe((el) => this.Counter(el))
-    this.counter = this.service.getAllBooks().length;
-  }
-
-  ngOnDestroy(): void {
-    this.subs.unsubscribe();
-  }
-
-  Counter(list: Book[]) {
-    this.counter = list.length;
+  CloseView() {
+    console.log("Close View");
+    this.itemViewer.CloseFullInfo();
   }
 }
