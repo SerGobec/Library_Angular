@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { Book } from './Models/Book.Model';
+import { Observable } from 'rxjs';
+import { Book } from './Models/Book.model';
 import { DataLibrary } from './Services/DataLibrary.service';
 
 @Component({
@@ -8,13 +9,18 @@ import { DataLibrary } from './Services/DataLibrary.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'LibraryApp';
-  books: Book[] = [];
+  newItem: string = "";
+  items: string[] = [];
+  users: Observable<string[]> | undefined;
 
-  constructor(private library: DataLibrary) { }
+  constructor(private dataService: DataLibrary) { }
 
+
+
+  addItem(name: string) {
+    this.dataService.addBook();
+  }
   ngOnInit() {
-    this.books = this.library.getAllBooks();
-    let elem = document.getElementById("sad"); 
+    
   }
 }

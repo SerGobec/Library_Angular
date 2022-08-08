@@ -1,15 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { Book } from '../Models/Book.model';
+import { DataLibrary } from '../Services/DataLibrary.service';
+import { BookInfo } from '../ViewModels/BookInfo.model';
 
 @Component({
-  selector: 'app-book-list-item',
+  selector: 'book-list-item',
   templateUrl: './book-list-item.component.html',
   styleUrls: ['./book-list-item.component.css']
 })
 export class BookListItemComponent implements OnInit {
-
-  constructor() { }
+  @Input() books: BookInfo[] = [];
+  constructor(private dataservice: DataLibrary) { }
 
   ngOnInit(): void {
+    this.books = this.dataservice.getBooksInfo();
+  }
+
+  ViewItem(book: BookInfo) {
+    console.log(book.Id)
   }
 
 }

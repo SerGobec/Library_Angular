@@ -8,6 +8,7 @@ import { BookListItemComponent } from './book-list-item/book-list-item.component
 import { EditBookComponent } from './edit-book/edit-book.component';
 import { ViewBookComponent } from './view-book/view-book.component';
 import { DataLibrary } from './Services/DataLibrary.service';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { DataLibrary } from './Services/DataLibrary.service';
     ViewBookComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [DataLibrary],
   bootstrap: [AppComponent]

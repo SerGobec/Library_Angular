@@ -1,1 +1,10 @@
 <p>book-list-item works!</p>
+<div class="BooksList">
+    <div *ngFor="let book of books" class="ListElem">
+      <div>{{book.Id}}</div>
+      <div>{{book.Title}}</div>
+      <div (click)="ViewItem(book)">viewButton</div>
+
+    </div>
+
+</div>

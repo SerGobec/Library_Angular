@@ -1,1 +1,9 @@
 <p>book-list works!</p>
+<div>
+  <div class="buttons">
+      <div (click)="ShowAll()">All</div>
+      <div (click)="ShowReccomended()">Reccomended</div>
+  </div>
+  <book-list-item [books]="books"></book-list-item>
+</div>
+
