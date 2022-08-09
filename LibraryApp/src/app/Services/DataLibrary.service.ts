@@ -9,7 +9,7 @@ import { FullBookInfo } from '../ViewModels/FullBookInfo.model';
 
 @Injectable()
 export class DataLibrary {
-  private books: Book[] = [new Book(1, "J. K. Rowling", "", "Harry Potter and the Philosopher's Stone", "Fantasy", ""),
+  private books: Book[] = [new Book(1, "J. K. Rowling", "", "Harry Potter and the Philosopher's Stone", "Fantasy", "textetxttsdf"),
   new Book(2, "Stephen King", "", "It", "Horror", "")
   ];
 

@@ -11,6 +11,7 @@ import { DataLibrary } from './Services/DataLibrary.service';
 import { FormsModule } from '@angular/forms';
 import { ItemViewer } from './Services/ItemViewer.service';
 import { BooksEditor } from './Services/BooksEditor.service';
+import { MatButtonModule } from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { BooksEditor } from './Services/BooksEditor.service';
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    MatButtonModule
   ],
   providers: [DataLibrary, ItemViewer, BooksEditor],
   bootstrap: [AppComponent]

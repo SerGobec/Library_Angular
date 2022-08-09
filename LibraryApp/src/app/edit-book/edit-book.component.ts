@@ -16,6 +16,7 @@ export class EditBookComponent implements OnInit {
 
   base64Output: string = "";
   photoUploaded: boolean = false;
+  public chosenFile: string = "";
 
   constructor(private editor: BooksEditor, private library: DataLibrary) {
     this.model = new Book(0, "", "", "", "", "");
@@ -31,7 +32,19 @@ export class EditBookComponent implements OnInit {
   }
 
   EditModel(book: Book) {
-    this.model = book;
+    this.chosenFile = "";
+    this.model.Author = book.Author;
+    this.model.Content = book.Content;
+    this.base64Output = book.Cover;
+    if (this.base64Output != "") {
+      this.photoUploaded = true;
+    }
+    if (this.base64Output == "") {
+      this.photoUploaded = false;
+    }
+    this.model.Genre = book.Genre;
+    this.model.Title = book.Title;
+    this.model.Id = book.Id;
     this.actionlabel = "Edit";
   }
 
@@ -40,6 +53,7 @@ export class EditBookComponent implements OnInit {
     this.actionlabel = "Add";
     this.base64Output = "";
     this.photoUploaded = false;
+    this.chosenFile = "";
   }
 
   AddBook() {
@@ -68,6 +82,7 @@ export class EditBookComponent implements OnInit {
   }
 
   RemovePhoto() {
+    this.chosenFile = "";
     this.base64Output = "";
     this.photoUploaded = false;
   }
