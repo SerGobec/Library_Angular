@@ -39,6 +39,7 @@ export class BookListComponent implements OnInit {
       this.books = this.library.getBooksInfo();
     } else {
       this.books = this.library.getRecommendedBooksInfo();
+      
     }
   }
 
