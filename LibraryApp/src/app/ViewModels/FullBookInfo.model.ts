@@ -10,6 +10,6 @@ export class FullBookInfo {
   public Score: number = 0;
   public reviews: Review[] = [];
 
-  constructor() { this.reviews.length }
+  constructor() {}
   
 }
