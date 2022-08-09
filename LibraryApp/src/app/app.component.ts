@@ -19,10 +19,6 @@ export class AppComponent {
     this.showFullInfo = false;
   }
 
-  addItem(name: string) {
-    this.dataService.addBook();
-  }
-
   ngOnInit() {
     this.subsOnCloser = this.viewService.Closer$.subscribe(() => this.CloseFullInfo());
     this.subsOnOpener = this.viewService.ShowView$.subscribe((id) => this.ShowFullinfo(id));

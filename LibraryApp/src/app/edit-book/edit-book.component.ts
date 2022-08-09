@@ -57,6 +57,10 @@ export class EditBookComponent implements OnInit {
   }
 
   AddBook() {
+    if (this.model.Title == "" || this.model.Author == "") {
+      alert("You have to enter at least Title and Author");
+      return;
+    }
     this.model.Cover = this.base64Output;
     this.library.SaveBook(this.model);
     this.ClearModel();
