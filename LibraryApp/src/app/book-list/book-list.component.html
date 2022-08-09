@@ -1,8 +1,9 @@
-<div>
+<div div="content">
   <div class="buttons">
       <div (click)="ShowAll()">All</div>
-      <div (click)="ShowReccomended()">Reccomended</div>
+      <div (click)="ShowReccomended()">Recommended</div>
   </div>
-  <book-list-item [books]="books"></book-list-item>
+  <div id="ItemsDiv">
+    <book-list-item [books]="books"></book-list-item>
+  </div>
 </div>
-

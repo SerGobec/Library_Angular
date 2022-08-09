@@ -1,8 +1,23 @@
 <div class="BooksList">
   <div *ngFor="let book of books" class="ListElem">
-    <div>{{book.Id}}</div>
-    <div>{{book.Title}}</div>
-    <div (click)="ViewItem(book)">Detail</div>
-    <div (click)="EditItem(book)">Edit</div>
+    <div class="CoverDiv">
+      <img *ngIf="book.Cover !== ''"
+           src="data:image/png;base64,{{book.Cover}}"
+           alt="Cover"
+           />
+      <div class="noCover" *ngIf="book.Cover == ''"> No Cover </div>
+    </div >
+    <div class="ContentDiv">
+      <div class="title">{{book.Title}}</div>
+      <div class="reviewAndScore">
+        <div class="ReviewCounter">Rewiew: {{book.ReviewCount}}</div>
+        <div class="Score">Rating: {{book.Score}}</div>
+      </div>
+      <div class="buttons">
+        <div (click)="ViewItem(book)" class="DetailButton">Detail</div>
+        <div (click)="EditItem(book)" class="EditButton">Edit</div>
+      </div>
+    </div>
+    
   </div>
 </div>
