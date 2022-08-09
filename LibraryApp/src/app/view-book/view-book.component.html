@@ -1,3 +1,33 @@
-<p>view-book works!</p>
-<div (click)="CloseView()">Close</div>
-{{model?.Id}}
+
+<div id="Content">
+  <div id="header">
+    <div id="DetailsLabel">Details</div>
+    <div (click)="CloseView()" id="CloseButton">X</div>
+  </div>
+  <div id="info">
+    <div class="leftPart">
+      <div class="PhotoDiv">
+        <img *ngIf="model?.Cover !== ''"
+             src="data:image/png;base64,{{model?.Cover}}"
+             alt="Cover" />
+        <div class="noCover" *ngIf="model?.Cover == ''"> No Cover </div>
+      </div>
+      <div class="reviewAndScore">
+        <div class="ReviewCounter">Rewiew: {{model?.reviews?.length}}</div>
+        <div class="Score">Rating: {{model?.Score}}</div>
+      </div>
+    </div>
+    <div class="rightPart">
+      <div class="Title">{{model?.Title}}</div>
+      <div class="AuthorAndGenre">{{model?.Author}}, {{model?.Genre}}</div>
+      <div class="BookContent"> {{model?.Content}} </div>
+    </div>
+
+  </div>
+  <div class="reviews">
+      <div class="review" *ngFor="let item of model?.reviews">
+        <div class="reviewer">{{item?.Review}}</div>
+        <div class="message">{{item?.Message}}</div>
+      </div>
+  </div>
+</div>

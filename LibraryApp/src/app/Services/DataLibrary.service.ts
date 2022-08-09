@@ -22,6 +22,10 @@ export class DataLibrary {
 
   private reviews: Review[] = [
     new Review(1, 1, "ccol", "Serhii"),
+    new Review(3, 1, "ccol", "Serhii"),
+    new Review(4, 1, "Lorem ipsum dolor sit amet. Qui debitis nemo sed placeat iure et adipisci perferendis ab assumenda placeat. 33 aliquam aperiam ad magni sunt non odit odit id explicabo sunt eum repellendus minima. Non maxime earum ut iure iusto sed fugiat esse aut vero numquam ex corporis modi sit voluptatem galisum! 33 nulla eius aut mollitia quis a incidunt magni qui sequi facere est aspernatur consequatur qui inventore quaerat in aspernatur ducimus.Ut laborum voluptates et velit culpa 33 sequi quis aut exercitationem omnis non reiciendis asperiores et maiores porro qui nesciunt laboriosam.Id error dolore a nemo impedit vel voluptates atque et iste eius! Et sunt culpa non impedit explicabo non aliquid quaerat.Ut internos voluptatibus vel Quis ratione qui delectus distinctio quo nihil saepe sit error doloribus rem voluptates aspernatur.Aut maxime eaque nam voluptatem accusantium et expedita ipsa ea accusantium debitis.Qui temporibus aperiam ut eveniet cupiditate rem nemo quia ut", "Serhii"),
+    new Review(5, 1, "ccol", "Serhii"),
+    new Review(6, 1, "ccol", "Serhii"),
     new Review(2, 2, "nice", "Pavlo")
   ]
 
