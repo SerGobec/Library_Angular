@@ -1,1 +1,16 @@
 <p>edit-book works!</p>
+<div>
+  <p>{{model.Id}}</p>
+  <div (click)="AddBook()">{{actionlabel}}</div>
+  <div (click)="ClearModel()">Clear</div>
+
+  <input type="file" (change)="onFileSelected($event)" />
+  <div *ngIf="photoUploaded" (click)="RemovePhoto()">Remove</div>
+  <br /><br />
+  base64 Output : <br />
+  {{base64Output}}
+
+  <div>
+    <img src="data:image/png;base64,{{base64Output}}" alt="Red dot" />
+  </div>
+</div>

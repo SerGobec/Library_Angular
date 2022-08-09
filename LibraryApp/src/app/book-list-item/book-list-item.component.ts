@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Book } from '../Models/Book.model';
+import { BooksEditor } from '../Services/BooksEditor.service';
 import { DataLibrary } from '../Services/DataLibrary.service';
 import { ItemViewer } from '../Services/ItemViewer.service';
 import { BookInfo } from '../ViewModels/BookInfo.model';
@@ -11,7 +12,7 @@ import { BookInfo } from '../ViewModels/BookInfo.model';
 })
 export class BookListItemComponent implements OnInit {
   @Input() books: BookInfo[] = [];
-  constructor(private dataservice: DataLibrary, private itemViewer: ItemViewer) { }
+  constructor(private dataservice: DataLibrary, private itemViewer: ItemViewer, private bookEditor: BooksEditor) { }
 
   ngOnInit(): void {
     this.books = this.dataservice.getBooksInfo();
@@ -22,6 +23,6 @@ export class BookListItemComponent implements OnInit {
   }
 
   EditItem(book: BookInfo) {
-     
+    this.bookEditor.EditBook(book.Id);
   }
 }

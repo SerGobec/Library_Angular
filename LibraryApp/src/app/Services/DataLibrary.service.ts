@@ -88,6 +88,29 @@ export class DataLibrary {
     this.booksCkecker$.next(this.books);
   }
 
+  SaveBook(book: Book) {
+    if (this.books.filter(el => el.Id == book.Id).length > 0) {
+      this.books.filter(el => el.Id == book.Id)[0].Author = book.Author;
+      this.books.filter(el => el.Id == book.Id)[0].Content = book.Content;
+      this.books.filter(el => el.Id == book.Id)[0].Cover = book.Cover;
+      this.books.filter(el => el.Id == book.Id)[0].Genre = book.Genre;
+      this.books.filter(el => el.Id == book.Id)[0].Title = book.Title;
+    } else {
+      if (book.Id == 0) {
+        book.Id = this.books.sort(el => el.Id)[this.books.length - 1].Id + 1;
+      }
+      this.books.push(book);
+    }
+    this.booksCkecker$.next(this.books);
+  }
+
+  findBookById(bookId: number): Book | undefined {
+    if (this.books.filter(el => el.Id == bookId).length > 0) {
+      return this.books.filter(el => el.Id == bookId)[0];
+    }
+    return undefined;
+  }
+
   getFullInfo(bookId: number): FullBookInfo | undefined {
     let info: FullBookInfo = new FullBookInfo();
     if (this.books.filter(el => el.Id == bookId).length == 0) return undefined;

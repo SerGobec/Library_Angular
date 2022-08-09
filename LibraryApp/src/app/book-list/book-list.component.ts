@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
 import { DataLibrary } from '../Services/DataLibrary.service';
 import { BookInfo } from '../ViewModels/BookInfo.model';
 
@@ -10,6 +11,7 @@ import { BookInfo } from '../ViewModels/BookInfo.model';
 export class BookListComponent implements OnInit {
   ShowAllswitcher: boolean = true;
   books: BookInfo[] = [];
+  private subsOnOpener?: Subscription;
   constructor(private library: DataLibrary) { }
 
   ShowAll() {
@@ -25,6 +27,19 @@ export class BookListComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.subsOnOpener = this.library.booksCkecker$.subscribe(() => this.UpdateBooks())
+  }
+
+  ngOnDestroy() {
+    this.subsOnOpener?.unsubscribe();
+  }
+
+  UpdateBooks() {
+    if (this.ShowAllswitcher) {
+      this.books = this.library.getBooksInfo();
+    } else {
+      this.books = this.library.getRecommendedBooksInfo();
+    }
   }
 
 }

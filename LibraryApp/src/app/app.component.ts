@@ -19,8 +19,6 @@ export class AppComponent {
     this.showFullInfo = false;
   }
 
-
-
   addItem(name: string) {
     this.dataService.addBook();
   }
