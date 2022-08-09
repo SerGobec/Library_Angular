@@ -1,0 +1,28 @@
+.buttons {
+    display: flex;
+    margin-left: 22%;
+}
+
+.buttons div {
+  width: auto;
+  padding: 5px 20px;
+  font-size: 20px;
+  font-family: cursive;
+  text-align: center;
+  border: 1px solid #FFEBC2;
+  background: #DABE86;
+}
+
+.buttons div:hover {
+  cursor: pointer;
+  background: #FFDE9D;
+}
+
+#ItemsDiv {
+  width: 60%;
+  margin-left: 20%;
+  height: 300px;
+  background: #F8D899;
+  overflow-y: scroll;
+  box-shadow: rgba(0, 0, 0, 0.9) 0px 3px 8px;
+}

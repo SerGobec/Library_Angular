@@ -1,0 +1,6 @@
+<div id="content" [ngClass]="{blured:showFullInfo}">
+  <books-page></books-page>
+</div>
+<div [ngClass]="{hidden:!showFullInfo}" id="FullInfoView">
+  <view-book [model]="bookForView"></view-book>
+</div>

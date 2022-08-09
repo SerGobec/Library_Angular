@@ -1,0 +1,45 @@
+<div id="EditBookDiv">
+  <div id="AddBookLabel">Add Book</div>
+  <div id="inputs">
+    <div>
+      <div class="labels"> Title: </div>
+      <div class="InputDiv"><input name="Title" type="text" [(ngModel)]="model.Title" /></div>
+    </div>
+    <div>
+      <div class="labels">Cover:</div>
+      <div class="InputDiv">
+        <input type="file" name="Cover" (change)="onFileSelected($event)" [(ngModel)]="chosenFile" />
+      </div>
+      <div *ngIf="photoUploaded">
+        <button mat-raised-button color="primary" (click)="RemovePhoto()">Remove</button>
+      </div>
+    </div>
+    <div>
+      <div class="labels">Genre:</div>
+      <div class="InputDiv">
+        <input name="Genre" type="text" [(ngModel)]="model.Genre" />
+      </div>
+    </div>
+      <div>
+        <div class="labels">Author:</div>
+        <div class="InputDiv">
+          <input name="Author" type="text" [(ngModel)]="model.Author" />
+        </div>
+      </div>
+      <div>
+        <div><label>Content:</label></div>
+        <textarea rows="12" cols="33" [(ngModel)]="model.Content"></textarea>
+      </div>
+    </div>
+
+  <div class="buttons">
+    <button mat-raised-button color="warn" (click)="AddBook()">{{actionlabel}}</button>
+    <button mat-raised-button (click)="ClearModel()">Clear</button>
+  </div>
+  <!-- <input type="file" (change)="onFileSelected($event)" />-->
+
+  <div id="CoverImg">
+    <img *ngIf="photoUploaded" src="data:image/png;base64,{{base64Output}}" />
+    <div *ngIf="!photoUploaded">Cover will be here:)</div>
+  </div>
+</div>
